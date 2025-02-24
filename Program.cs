@@ -1,5 +1,8 @@
+using Backend1.DTOs;
 using Backend1.Models;
 using Backend1.Services;
+using Backend1.Validators;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -29,6 +32,9 @@ builder.Services.AddDbContext<StoreContext>(options =>
 }
 );
 
+//Validator
+builder.Services.AddScoped<IValidator<BeerInsertDto>, BeerInsertValidator>();
+builder.Services.AddScoped<IValidator<BeerUpdateDto>, BeerUpdateValidator>();
 
 builder.Services.AddControllers();
 
