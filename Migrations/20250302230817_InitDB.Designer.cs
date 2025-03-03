@@ -11,15 +11,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend1.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20250211052353_AlcoholInBeer")]
-    partial class AlcoholInBeer
+    [Migration("20250302230817_InitDB")]
+    partial class InitDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.1")
+                .HasAnnotation("ProductVersion", "9.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -33,7 +33,7 @@ namespace Backend1.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BeerID"));
 
                     b.Property<decimal>("Alcohol")
-                        .HasColumnType("decimal()18,2");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("BrandID")
                         .HasColumnType("int");
